@@ -95,7 +95,7 @@
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v11', //stylesheet location
-      center: [-122.411464, 37.7852299], // starting position
+      center: [23.808724, 90.395469], // starting position
       zoom: 10,// starting zoom
       transformRequest: transformRequest
     });
@@ -113,8 +113,8 @@
 
       function makeGeoJSON(csvData) {
         csv2geojson.csv2geojson(csvData, {
-          latfield: 'Latitude',
-          lonfield: 'Longitude',
+          Lat: 'Latitude',
+          Lon: 'Longitude',
           delimiter: ','
         }, function (err, data) {
           map.on('load', function () {
@@ -128,7 +128,7 @@
                 'data': data
               },
               'paint': {
-                'circle-radius': 5,
+                'circle-radius': 15,
                 'circle-color': "purple"
               }
             });
